@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@keyframes emojiAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-emoji-appear {
+  animation: emojiAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-title {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-description {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+.animate-button {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
+}
+
+.animate-features {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+}
+
+/* Starry background styles */
+@layer utilities {
+  .starry-bg {
+    @apply fixed inset-0 bg-black overflow-hidden -z-10;
+  }
+
+  .star {
+    @apply absolute rounded-full bg-white;
+    width: 2px;
+    height: 2px;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+
+  .star::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 9999px;
+    background: white;
+    box-shadow:
+      10vw 20vh white,
+      15vw 35vh white,
+      25vw 60vh white,
+      30vw 10vh white,
+      50vw 30vh white,
+      55vw 80vh white,
+      60vw 40vh white,
+      80vw 20vh white,
+      90vw 50vh white,
+      95vw 70vh white;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

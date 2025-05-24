@@ -1,0 +1,50 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: black;
+}
+
+/* Stars wrapper */
+.starry-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Single star generator (uses box-shadow for many stars) */
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    100px 200px white,
+    300px 400px white,
+    500px 100px white,
+    700px 600px white,
+    200px 300px white,
+    400px 700px white,
+    600px 500px white,
+    800px 200px white,
+    900px 300px white;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
